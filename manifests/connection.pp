@@ -122,7 +122,6 @@ define openswan::connection (
   include openswan
 
   validate_re($ensure, ['present', 'absent'], "${ensure} is not a valid value for ensure attribute")
-  validate_re($rekey, ['yes', 'no'], 'valid values are : yes or no')
 
   file { "${openswan::connections_dir}/${name}.conf" :
     ensure  => $ensure,
