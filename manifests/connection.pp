@@ -139,7 +139,7 @@ define openswan::connection (
     owner   => 'root',
     group   => 'root',
     mode    => '0600',
-    content => "${leftid} ${right} : PSK \"${psk}\" \n",
+    content => "${leftid} ${right} : PSK \"${psk}\"\n",
     require => Class['openswan::config'],
     notify  => Class['openswan::service'],
   }

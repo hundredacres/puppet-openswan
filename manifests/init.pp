@@ -23,12 +23,12 @@
 #
 # [*connections_dir*]
 #   Connections files folder (*.conf)
-#   Default: /etc/ipsec.d/connection 
+#   Default: /etc/ipsec.d/connection
 #
-# [*secretss_dir*]
+# [*secrets_dir*]
 #   secrets files folder (*.secrets)
 #   Default: /etc/ipsec.d/connection
-# 
+#
 #
 # Requires: see Modulefile
 #
