@@ -3,12 +3,12 @@
 # This define allows you to create vpn connection
 #
 # ===Parameters:
-# 
+#
 # [*ensure*]
 #   whether create connection or not
 #       Default: present
 #       Valid values: present, absent
-# 
+#
 # [*type*]
 #   set the IPsec mode to use
 #       Default: tunnel
@@ -47,6 +47,12 @@
 #       specify the IP address of openswan server public-network interface
 #       Valid values: FQDN, IP address, interface name, %any, %defaultroute,
 #               %opportunistic, %group, %opportunisticgroup
+#
+# [*rightnexthop*]
+#       specify the next-hop gateway IP address for the right server's
+#       connection to the public network
+#       Default: %direct
+#       Valid values: IP address, %direct
 #
 # [*rightsubnet*]
 #       specify private subnet behind the right openswan server
@@ -93,21 +99,30 @@ define openswan::connection (
   $leftsubnet   = undef,
   $leftsubnets  = undef,
   $right        = undef,
+  $rightnexthop = undef,
   $rightsubnet  = undef,
   $rightsubnets = undef,
-  $pfs          = undef,
-  $auto         = undef,
-  $psk          = undef,
+  $phase2       = undef,
+  $phase2alg    = undef,
   $ike          = undef,
   $esp          = undef,
   $keyexchange  = undef,
   $salifetime   = undef,
   $ikelifetime  = undef,
+  $pfs          = undef,
+  $auto         = undef,
+  $rekey        = undef,
+  $keyingtries  = undef,
+  $dpddelay     = undef,
+  $dpdtimeout   = undef,
+  $dpdaction    = undef,
+  $psk          = undef,
 ){
 
   include openswan
 
   validate_re($ensure, ['present', 'absent'], "${ensure} is not a valid value for ensure attribute")
+  validate_re($rekey, ['yes', 'no'], 'valid values are : yes or no')
 
   file { "${openswan::connections_dir}/${name}.conf" :
     ensure  => $ensure,

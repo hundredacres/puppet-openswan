@@ -23,11 +23,23 @@ conn <%= @name %>
 <% if @right -%>
 	right=<%= @right %>
 <% end -%>
+<% if @rightnexthop -%>
+	rightnexthop=<%= @rightnexthop %>
+<% end -%>
 <% if @rightsubnet -%>
 	rightsubnet=<%= @rightsubnet %>
 <% end -%>
 <% if @rightsubnets -%>
 	rightsubnets=<%= @rightsubnets %>
+<% end -%>
+<% if @phase2 -%>
+  phase2=<%= @phase2 %>
+<% end -%>
+<% if @phase2alg -%>
+  phase2alg=<%= @phase2alg %>
+<% end -%>
+<% if @ike -%>
+  ike=<%= @ike %>
 <% end -%>
 <% if @pfs -%>
 	pfs=<%= @pfs %>
@@ -35,21 +47,30 @@ conn <%= @name %>
 <% if @auto -%>
 	auto=<%= @auto %>
 <% end -%>
-<% if @ike -%>
-        ike=<%= @ike %>
+<% if @rekey -%>
+	rekey=<%= @rekey %>
+<% end -%>
+<% if @keyingtries -%>
+	keyingtries=<%= @keyingtries %>
 <% end -%>
 <% if @esp -%>
-        esp=<%= @esp %>
+  esp=<%= @esp %>
 <% end -%>
 <% if @keyexchange -%>
-        keyexchange=<%= @keyexchange %>
+  keyexchange=<%= @keyexchange %>
 <% end -%>
 <% if @salifetime -%>
-        salifetime=<%= @salifetime %>
+  salifetime=<%= @salifetime %>
 <% end -%>
 <% if @ikelifetime -%>
-        ikelifetime=<%= @ikelifetime %>
+  ikelifetime=<%= @ikelifetime %>
 <% end -%>
-
-
-
+<% if @dpddelay -%>
+	dpddelay=<%= @dpddelay %>
+<% end -%>
+<% if @dpdtimeout -%>
+	dpdtimeout=<%= @dpdtimeout %>
+<% end -%>
+<% if @dpdaction -%>
+	dpdaction=<%= @dpdaction %>
+<% end -%>
